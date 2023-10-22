@@ -30,9 +30,14 @@ let computerGuess;
 const prevGuessesArray = [];
 // ***********************Global Variable End***********************
 
+window.addEventListener("load", () => {
+  // Turn Active FullScreen if window.innerWidth <= 500
+  if(window.innerWidth <= 500){
+    Game.requestFullscreen()
+}
+
 // Codes for to enter game page
 start.addEventListener("click", (e) => {
-  // Game.requestFullscreen();
 
   // Hide input, hint & remainGuess
   userInput.style.opacity = "0";
@@ -77,6 +82,7 @@ submit.addEventListener("click", (e) => {
     remainCount.innerHTML = chances;
     userInput.style.opacity = "0";
     userInput.value = 0;
+
 
     // to Give hints user he is low OR high ***********************
     // hintContainer.style.opacity = "1";
@@ -141,12 +147,14 @@ submit.addEventListener("click", (e) => {
         warnLow.style.transition = "none";
         warnHigh.style.opacity = 1;
         warnHigh.style.transition = "0.9s all ease-in-out";
+        window.navigator.vibrate(500)
       } else {
         hintContainer.style.opacity = 1;
         warnHigh.style.opacity = 0;
         warnHigh.style.transition = "none";
         warnLow.style.opacity = 1;
         warnLow.style.transition = "0.9s all ease-in-out";
+        window.navigator.vibrate(500)
       }
     }
   }
@@ -156,6 +164,7 @@ resultBtn.addEventListener("click", () => {
   pages.forEach((page) => {
     page.style.transform = "translateX(0)";
     submit.value = startGameStr;
-    // document.exitFullscreen();
   });
+});
+
 });
