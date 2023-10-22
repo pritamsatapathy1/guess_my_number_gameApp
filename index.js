@@ -32,7 +32,7 @@ const prevGuessesArray = [];
 
 // Codes for to enter game page
 start.addEventListener("click", (e) => {
-  Game.requestFullscreen();
+  // Game.requestFullscreen();
 
   // Hide input, hint & remainGuess
   userInput.style.opacity = "0";
@@ -124,40 +124,6 @@ submit.addEventListener("click", (e) => {
           resultTitle.style.transition = "none";
           resultBtn.value = "Play Again";
 
-          /* Confetti Particles Animation
-          {
-            const end = Date.now() + 2 * 1000;
-
-            // go Buckeyes!
-            const colors = ["#bb0000", "#ffffff"];
-  
-            (function frame() {
-              confetti({
-                particleCount: 2,
-                angle: 60,
-                spread: 55,
-                origin: { x: Game.offsetWidth / 2 },
-                colors: colors,
-                parent: Game,
-              });
-  
-              confetti({
-                particleCount: 2,
-                angle: 120,
-                spread: 55,
-                origin: { x: Game.offsetWidth / 2 },
-                colors: colors,
-                parent: Game,
-              });
-  
-              if (Date.now() < end) {
-                requestAnimationFrame(frame);
-              }
-            })();
-          }
-          */
-          
-
           pages.forEach((page) => {
             page.style.transform = "translateX(-200%)";
           });
@@ -190,6 +156,6 @@ resultBtn.addEventListener("click", () => {
   pages.forEach((page) => {
     page.style.transform = "translateX(0)";
     submit.value = startGameStr;
-    document.exitFullscreen();
+    // document.exitFullscreen();
   });
 });
