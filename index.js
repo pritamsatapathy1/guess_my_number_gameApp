@@ -97,8 +97,6 @@ submit.addEventListener("click", (e) => {
     // Checking user Guess is Right OR Wrong
     if (playGameStr === e.target.value) {
       const userGuess = +document.getElementById("userGuess").value;
-      console.log(userGuess);
-      console.log(computerGuess);
 
       remainCount.innerHTML =
         chances <= 5 && chances >= 1 ? --chances : (chances = 0);
@@ -147,14 +145,18 @@ submit.addEventListener("click", (e) => {
         warnLow.style.transition = "none";
         warnHigh.style.opacity = 1;
         warnHigh.style.transition = "0.9s all ease-in-out";
-        window.navigator.vibrate(500)
+
+        // Added Vibration effect on every wrong guess of player
+        window.navigator.vibrate([100, 50, 100])
       } else {
         hintContainer.style.opacity = 1;
         warnHigh.style.opacity = 0;
         warnHigh.style.transition = "none";
         warnLow.style.opacity = 1;
         warnLow.style.transition = "0.9s all ease-in-out";
-        window.navigator.vibrate(500)
+
+        // Added Vibration effect on every wrong guess of player
+        window.navigator.vibrate([100, 50, 100])
       }
     }
   }
